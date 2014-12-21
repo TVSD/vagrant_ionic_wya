@@ -20,4 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The following expects that that "ionic_wya" project is cloned into a
   #  sibling directory to the current directory for this Vagrantfile.
   config.vm.synced_folder "../ionic_wya", "/project"
+
+  # Updates Ionic to the most current version on provisioning of the VM
+  config.vm.provision "shell",
+    inline: "sudo npm update -g ionic"
 end
